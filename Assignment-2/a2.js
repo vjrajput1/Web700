@@ -4,7 +4,7 @@
 * No part of this assignment has been copied manually or electronically from any other source
 * (including web sites) or distributed to other students.
 *
-* Name: [Your Name] Student ID: [Your ID] Date: [Submission Date]
+* Name: Vaibhav Jaysinh Rajput Student ID: 144444239 Date: 26/05/2024
 *
 ********************************************************************************/
 
@@ -12,7 +12,7 @@ const collegeData = require('./modules/collegeData.js'); // Corrected path
 
 collegeData.initialize()
     .then(() => {
-        console.log("Data initialization successful");
+        
 
         collegeData.getAllStudents()
             .then(students => {
