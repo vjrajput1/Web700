@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        
+        {
+            "type": "chrome",
+            "name": "http://V:\\Second Semester\\WEB700\\Web700\\Assignment-3\\web-700 app",
+            "request": "launch",
+            "url": "http://V:\\Second Semester\\WEB700\\Web700\\Assignment-3\\web-700 app"
+        }
+    ]
+}
