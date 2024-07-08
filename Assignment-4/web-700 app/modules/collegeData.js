@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require("path");
 
 class Data {
   constructor(students, courses) {
@@ -11,12 +12,15 @@ let dataCollection = null;
 
 function initialize() {
   return new Promise((resolve, reject) => {
-    fs.readFile('V:\Second Semester\WEB700\Web700\Assignment-4\web-700 app\data\students.json', 'utf8', (err, studentData) => {
+    const coursePath = path.resolve(__dirname, '../data', 'courses.json');
+        const studentPath = path.resolve(__dirname, '../data', 'students.json');
+
+    fs.readFile(studentPath, 'utf8', (err, studentData) => {
       if (err) {
         reject("unable to read students.json");
         return;
       }
-      fs.readFile('V:\Second Semester\WEB700\Web700\Assignment-4\web-700 app\data\courses.json', 'utf8', (err, courseData) => {
+      fs.readFile(coursePath, 'utf8', (err, courseData) => {
         if (err) {
           reject("unable to read courses.json");
           return;
@@ -83,7 +87,7 @@ function getStudentByNum(num) {
   });
 }
 
-const fs = require('fs');
+
 
 function addStudent(studentData) {
     return new Promise((resolve, reject) => {
@@ -92,13 +96,13 @@ function addStudent(studentData) {
         dataCollection.students.push(studentData);
         
         // Write to the students.json file
-        fs.writeFile('V:\Second Semester\WEB700\Web700\Assignment-4\web-700 app\data\students.json', JSON.stringify(dataCollection.students, null, 4), (err) => {
-            if (err) {
-                reject(err);
-            } else {
+        //fs.writeFile('V:\Second Semester\WEB700\Web700\Assignment-4\web-700 app\data\students.json', JSON.stringify(dataCollection.students, null, 4), (err) => {
+        //    if (err) {
+          //      reject(err);
+            //} else {
                 resolve();
-            }
-        });
+            //}
+        //});
     });
 };
 

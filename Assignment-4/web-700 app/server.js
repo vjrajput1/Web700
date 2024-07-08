@@ -9,19 +9,20 @@
  *  Date: 23/06/2024 
  ********************************************************************************/
 
-var HTTP_PORT = process.env.PORT || 3000;
+var HTTP_PORT = process.env.PORT || 8080;
 var express = require("express");
 var app = express();
 const bodyParser = require('body-parser');
 var path = require("path");
-var collegeData = require("V:\Second Semester\WEB700\Web700\Assignment-4\web-700 app\modules\collegeData.js");
+const collegeData = require("./modules/collegeData");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(express.static('views'));
 
 // GET route for /students/add
 app.get('/students/add', (req, res) => {
-    res.sendFile(path.join(__dirname, 'V:\Second Semester\WEB700\Web700\Assignment-4\web-700 app\views\addstudents.html'));
+    res.sendFile(path.join(__dirname, './views/addstudents.html'));
 });
 
 // POST route for /students/add
@@ -34,16 +35,16 @@ app.post('/students/add', (req, res) => {
 });
 
 
-app.get("V:\Second Semester\WEB700\Web700\Assignment-3\web-700 app\views\home.html", (req, res) => {
-    res.sendFile(path.join(__dirname, "V:\Second Semester\WEB700\Web700\Assignment-3\web-700 app\views\home.html"));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/home.html"));
 });
 
-app.get("V:\Second Semester\WEB700\Web700\Assignment-3\web-700 app\views\about.html", (req, res) => {
-    res.sendFile(path.join(__dirname, "V:\Second Semester\WEB700\Web700\Assignment-3\web-700 app\views\about.html"));
+app.get("/about", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/about.html"));
 });
 
-app.get("V:\Second Semester\WEB700\Web700\Assignment-3\web-700 app\views\htmlDemo.html", (req, res) => {
-    res.sendFile(path.join(__dirname, "V:\Second Semester\WEB700\Web700\Assignment-3\web-700 app\views\htmlDemo.html"));
+app.get("/htmlDemo", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/htmlDemo.html"));
 });
 
 app.get("/students", (req, res) => {
